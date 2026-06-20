@@ -28,6 +28,9 @@ struct SequencingBoardView: View {
                         // Tap-to-place too: drag is hard for a 4-year-old, so a tap drops
                         // the card into the next open well (and keeps the UI test reliable).
                         .onTapGesture { placeInNextOpenWell(ref) }
+                        // Surface as a single hittable element (the art inside is a11y-hidden).
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityAddTraits(.isButton)
                         .accessibilityIdentifier("beat_\(ref)")
                 }
                 if tray.isEmpty { Color.clear.frame(height: 200) }
