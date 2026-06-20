@@ -28,7 +28,7 @@ struct SequencingBoardView: View {
                     // card into the next open well (and keeps the UI test deterministic).
                     Button { placeInNextOpenWell(ref) } label: { beatCard(ref) }
                         .buttonStyle(.plain)
-                        .draggable(ref)
+                        .beatDraggable(ref)
                         .accessibilityIdentifier("beat_\(ref)")
                 }
                 if tray.isEmpty { Color.clear.frame(height: 200) }
@@ -83,14 +83,10 @@ struct SequencingBoardView: View {
                 if let ref = slots[idx] {
                     Button { unplace(at: idx) } label: { beatCard(ref) }   // tap to take it back
                         .buttonStyle(.plain)
-                        .draggable(ref)
+                        .beatDraggable(ref)
                 }
             }
-            .dropDestination(for: String.self) { items, _ in
-                guard let ref = items.first else { return false }
-                place(ref, at: idx)
-                return true
-            }
+            .beatDropDestination { place($0, at: idx) }
             .accessibilityIdentifier("well_\(idx)")
         }
     }
@@ -117,6 +113,27 @@ struct SequencingBoardView: View {
 
     private func beatImage(_ id: String) -> String {
         flow.story.beats.first { $0.id == id }?.image ?? id
+    }
+}
+
+private extension View {
+    /// System drag-and-drop is the production interaction, but it is disabled under UI
+    /// testing: `.draggable`/`.dropDestination` build a drag interaction whose accessibility
+    /// snapshot can trap the app under XCUITest. Tap-to-place covers the test path.
+    @ViewBuilder func beatDraggable(_ payload: String) -> some View {
+        if AppEnv.isUITesting { self } else { self.draggable(payload) }
+    }
+
+    @ViewBuilder func beatDropDestination(perform: @escaping (String) -> Void) -> some View {
+        if AppEnv.isUITesting {
+            self
+        } else {
+            self.dropDestination(for: String.self) { items, _ in
+                guard let ref = items.first else { return false }
+                perform(ref)
+                return true
+            }
+        }
     }
 }
 
