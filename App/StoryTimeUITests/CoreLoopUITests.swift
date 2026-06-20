@@ -46,12 +46,17 @@ final class CoreLoopUITests: XCTestCase {
             app.descendants(matching: .any).matching(identifier: id).firstMatch
         }
         var guardCount = 0
-        while !beatQuery.firstMatch.exists && guardCount < 24 {
+        while !beatQuery.firstMatch.exists && guardCount < 12 {
             let c = app.buttons["choice_correct"]
-            if c.waitForExistence(timeout: 4) { c.tap() }
+            if c.waitForExistence(timeout: 3) { c.tap() }
             guardCount += 1
         }
-        let diag = "player=\(screen("screen_player").exists) question=\(screen("screen_question").exists) sequencing=\(screen("screen_sequencing").exists) correctVisible=\(app.buttons["choice_correct"].exists)"
+        _ = screen // (container ids unreliable on plain stacks; use button-based signals)
+        let onPlayer = app.buttons["replayStory"].exists
+        let onEnd = app.descendants(matching: .any).matching(identifier: "endCard").firstMatch.exists
+        let nBeats = beatQuery.count
+        let nButtons = app.buttons.count
+        let diag = "player(replayBtn)=\(onPlayer) choices=\(app.buttons["choice_correct"].exists) beats=\(nBeats) end=\(onEnd) totalButtons=\(nButtons) guard=\(guardCount)"
         XCTAssertTrue(beatQuery.firstMatch.waitForExistence(timeout: 15), "sequencing board appears [\(diag)]")
 
         // Sequencing: tap each shuffled beat to drop it into the next open well (the app
