@@ -13,7 +13,8 @@ struct SequencingBoardView: View {
     @State private var initialized = false
 
     private var beatCount: Int { flow.story.beats.count }
-    private var allPlaced: Bool { slots.allSatisfy { $0 != nil } }
+    // `slots` is sized in onAppear; until then it is empty, so guard against an empty array.
+    private var allPlaced: Bool { slots.count == beatCount && slots.allSatisfy { $0 != nil } }
 
     var body: some View {
         VStack(spacing: 36) {
@@ -80,7 +81,7 @@ struct SequencingBoardView: View {
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
                     .fill(Palette.surfaceAlt)
                     .frame(width: 240, height: 240)
-                if let ref = slots[idx] {
+                if idx < slots.count, let ref = slots[idx] {
                     Button { unplace(at: idx) } label: { beatCard(ref) }   // tap to take it back
                         .buttonStyle(.plain)
                         .beatDraggable(ref)
@@ -96,12 +97,13 @@ struct SequencingBoardView: View {
     }
 
     private func unplace(at idx: Int) {
-        guard let ref = slots[idx] else { return }
+        guard idx < slots.count, let ref = slots[idx] else { return }
         slots[idx] = nil
         if !tray.contains(ref) { tray.append(ref) }
     }
 
     private func place(_ ref: String, at idx: Int) {
+        guard idx < slots.count else { return }
         // Remove ref wherever it currently is.
         if let from = slots.firstIndex(of: ref) { slots[from] = nil }
         tray.removeAll { $0 == ref }
