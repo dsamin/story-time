@@ -59,7 +59,10 @@ struct ListenOrb: View {
                 .font(.system(size: 34, weight: .regular))
                 .foregroundStyle(tint)
         }
-        .onAppear { withAnimation(.easeInOut(duration: 1.1).repeatForever(autoreverses: true)) { pulse = true } }
+        .onAppear {
+            guard !AppEnv.isUITesting else { return }  // keep the app "idle" for XCUITest
+            withAnimation(.easeInOut(duration: 1.1).repeatForever(autoreverses: true)) { pulse = true }
+        }
         .accessibilityHidden(true)
     }
 }

@@ -1,6 +1,13 @@
 import Foundation
 import LearningKit
 
+/// Tiny environment flags. Under UI testing we disable perpetual animations so XCUITest
+/// can reach an "idle" state (a `.repeatForever` animation otherwise blocks snapshotting
+/// and causes lost-connection timeouts).
+enum AppEnv {
+    static let isUITesting = ProcessInfo.processInfo.arguments.contains("-uiTesting")
+}
+
 /// A fast, deterministic narrator used only under the `-uiTesting` launch flag. A headless
 /// CI simulator has no audio output and `AVSpeechSynthesizer` completion timing there is
 /// unreliable, so for UI tests we drive the same word/finish callbacks the real narrators
