@@ -79,6 +79,18 @@ jobs:
             -resultBundlePath TestResults.xcresult \
             test
 
+      - name: Dump any simulator crash reports
+        if: always()
+        run: |
+          echo "=== DiagnosticReports ==="
+          ls -la ~/Library/Logs/DiagnosticReports/ 2>/dev/null || true
+          shopt -s nullglob
+          for f in ~/Library/Logs/DiagnosticReports/StoryTime*.ips ~/Library/Logs/DiagnosticReports/StoryTime*.crash; do
+            echo "=================== $f ==================="
+            head -200 "$f" || true
+          done
+          echo "=== end crash reports ==="
+
       - name: Upload result bundle
         if: always()
         uses: actions/upload-artifact@v4
