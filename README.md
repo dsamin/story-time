@@ -244,7 +244,12 @@ Simulator/scheme names and the bundle id are placeholders — match them to what
 
 **Built.** The shared chassis (`LearningKit`), the authoring template + `StoryValidator` + five validated micro-stories, the errorless `StorySession`, and the full SwiftUI app (shelf, narrated player with word highlighting + tap-a-word, errorless picture-answer flow, reread-with-new-questions, drag-to-order sequencing + replay, calm end card, gated parent settings) are implemented. See `docs/ARCHITECTURE.md`, `docs/DESIGN.md`, and `docs/RUNNING.md`.
 
-**Verification.** The import-clean chassis and the entire core-loop logic are plain Swift + Foundation and are covered by **32 unit tests** plus a runnable end-to-end driver (`swift run storytime-demo`) — both green on Linux/CI, exercising listen → answer → errorless wrong-tap re-model/retry → reread (fresh set) → every-permutation sequencing → replay → end. The SwiftUI app is built and driven on an iPad simulator via XcodeGen + `xcodebuild` + XCUITest (`CoreLoopUITests`) — see the macOS CI job in `.github/workflows/ci.yml` (iOS simulators are macOS-only, so that step runs on a Mac).
+**Verification.** Two layers, both green in CI:
+
+- *Logic* — the import-clean chassis and the entire core-loop logic are plain Swift + Foundation, covered by **32 unit tests** plus a runnable end-to-end driver (`swift run storytime-demo`), green on Linux/CI: listen → answer → errorless wrong-tap re-model/retry → reread (fresh set) → every-permutation sequencing → replay → end.
+- *App on a real iPad simulator* — the SwiftUI app is generated with XcodeGen, built with `xcodebuild`, and driven by **XCUITest on an iPad simulator** (Xcode 16.4 / iPadOS 18). `CoreLoopUITests` taps a tile → hears the story → answers by tapping a picture → **taps a WRONG picture and asserts no buzzer/fail and a retry** → answers the reread's fresh set → orders the beat cards → watches the replay → reaches the calm end card, and asserts the parent gate ignores a stray tap and the app is landscape. **All 3 UI tests pass (0 failures).**
+
+Both run automatically in `.github/workflows/ci.yml` (a Linux job for the logic, a `macos-15` job for the simulator build + XCUITest).
 
 App 4 of 5 in the shared-chassis learning slate; it depends on the `LearningKit` core established by app 1 (Sound Catcher). Repo: `~/Projects/story-time` · remote `github.com/dsamin/story-time`.
 
