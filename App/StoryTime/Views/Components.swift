@@ -88,7 +88,7 @@ struct RoundControl: View {
 
 /// A large picture-answer choice card. Errorless feedback is expressed here.
 struct ChoiceCard: View {
-    enum Feedback { case none, confirmed, remodel }
+    enum Feedback: Equatable { case none, confirmed, remodel }
     let ref: String
     let feedback: Feedback
     let onTap: () -> Void

@@ -50,20 +50,19 @@ final class CoreLoopUITests: XCTestCase {
         }
         XCTAssertTrue(beatQuery.firstMatch.waitForExistence(timeout: 20), "sequencing board appears")
 
-        // Sequencing: drag each shuffled beat into a well, in order.
-        let wellCount = app.descendants(matching: .any)
-            .matching(NSPredicate(format: "identifier BEGINSWITH 'well_'")).count
-        for i in 0..<wellCount {
-            let beat = beatQuery.firstMatch
-            guard beat.waitForExistence(timeout: 5) else { break }
-            let well = app.descendants(matching: .any).matching(identifier: "well_\(i)").firstMatch
-            beat.press(forDuration: 0.6, thenDragTo: well)
+        // Sequencing: tap each shuffled beat to drop it into the next open well (the app
+        // supports tap-to-place as well as drag; taps are deterministic for the test).
+        var placedGuard = 0
+        while beatQuery.firstMatch.waitForExistence(timeout: 3) && placedGuard < 6 {
+            beatQuery.firstMatch.tap()
+            placedGuard += 1
         }
 
-        if sequencePlayQuery.waitForExistence(timeout: 8) { sequencePlayQuery.tap() }
+        XCTAssertTrue(sequencePlayQuery.waitForExistence(timeout: 8), "all beats placed → play appears")
+        sequencePlayQuery.tap()
 
         // Replay → calm end card. A single tap returns to the shelf.
-        let end = app.otherElements["endCard"].firstMatch
+        let end = app.descendants(matching: .any).matching(identifier: "endCard").firstMatch
         XCTAssertTrue(end.waitForExistence(timeout: 25), "the calm end card appears after replay")
         end.tap()
         XCTAssertTrue(app.descendants(matching: .any)
@@ -73,7 +72,7 @@ final class CoreLoopUITests: XCTestCase {
 
     func testParentGateBlocksAStrayTap() {
         let app = launch()
-        let gate = app.otherElements["parentGate"].firstMatch
+        let gate = app.descendants(matching: .any).matching(identifier: "parentGate").firstMatch
         XCTAssertTrue(gate.waitForExistence(timeout: 5))
         // A single stray tap (what a 4-year-old does) must NOT open settings.
         gate.tap()
@@ -83,10 +82,10 @@ final class CoreLoopUITests: XCTestCase {
 
     func testLandscapeOnly() {
         let app = launch()
-        XCTAssertTrue(app.tiles.firstMatch.exists || app.descendants(matching: .any)
-            .matching(NSPredicate(format: "identifier BEGINSWITH 'tile_'")).firstMatch.waitForExistence(timeout: 5))
-        XCTAssertTrue(XCUIDevice.shared.orientation.isLandscape ||
-                      app.windows.firstMatch.frame.width > app.windows.firstMatch.frame.height,
-                      "the app presents landscape")
+        let tile = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier BEGINSWITH 'tile_'")).firstMatch
+        XCTAssertTrue(tile.waitForExistence(timeout: 5))
+        let frame = app.windows.firstMatch.frame
+        XCTAssertGreaterThan(frame.width, frame.height, "the app presents landscape")
     }
 }

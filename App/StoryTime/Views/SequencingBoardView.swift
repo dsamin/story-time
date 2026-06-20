@@ -25,6 +25,9 @@ struct SequencingBoardView: View {
                 ForEach(tray, id: \.self) { ref in
                     beatCard(ref)
                         .draggable(ref)
+                        // Tap-to-place too: drag is hard for a 4-year-old, so a tap drops
+                        // the card into the next open well (and keeps the UI test reliable).
+                        .onTapGesture { placeInNextOpenWell(ref) }
                         .accessibilityIdentifier("beat_\(ref)")
                 }
                 if tray.isEmpty { Color.clear.frame(height: 200) }
@@ -78,6 +81,7 @@ struct SequencingBoardView: View {
                 if let ref = slots[idx] {
                     beatCard(ref)
                         .draggable(ref)
+                        .onTapGesture { unplace(at: idx) }   // tap a placed card to take it back
                 }
             }
             .dropDestination(for: String.self) { items, _ in
@@ -87,6 +91,16 @@ struct SequencingBoardView: View {
             }
             .accessibilityIdentifier("well_\(idx)")
         }
+    }
+
+    private func placeInNextOpenWell(_ ref: String) {
+        if let idx = slots.firstIndex(where: { $0 == nil }) { place(ref, at: idx) }
+    }
+
+    private func unplace(at idx: Int) {
+        guard let ref = slots[idx] else { return }
+        slots[idx] = nil
+        if !tray.contains(ref) { tray.append(ref) }
     }
 
     private func place(_ ref: String, at idx: Int) {

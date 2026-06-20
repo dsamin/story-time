@@ -29,10 +29,15 @@ final class AppModel {
     @ObservationIgnored var context: ModelContext?
 
     init() {
-        // Recorded human-voice clips when present; the synth placeholder otherwise, so
-        // the whole loop runs before any audio is recorded.
-        let synth = SynthNarrator()
-        self.narrator = ClipNarrator(bundle: .main, fallback: synth)
+        if ProcessInfo.processInfo.arguments.contains("-uiTesting") {
+            // Deterministic, fast narration for the headless UI-test simulator.
+            self.narrator = UITestNarrator()
+        } else {
+            // Recorded human-voice clips when present; the synth placeholder otherwise, so
+            // the whole loop runs before any audio is recorded.
+            let synth = SynthNarrator()
+            self.narrator = ClipNarrator(bundle: .main, fallback: synth)
+        }
         loadStories()
     }
 
