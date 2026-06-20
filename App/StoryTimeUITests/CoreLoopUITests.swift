@@ -43,9 +43,9 @@ final class CoreLoopUITests: XCTestCase {
         let sequencePlayQuery = app.buttons["sequencePlay"]
         let beatQuery = app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH 'beat_'"))
         var guardCount = 0
-        while !beatQuery.firstMatch.waitForExistence(timeout: 3) && guardCount < 12 {
+        while !beatQuery.firstMatch.exists && guardCount < 40 {
             let c = app.buttons["choice_correct"]
-            if c.waitForExistence(timeout: 8) { c.tap() }
+            if c.waitForExistence(timeout: 6) { c.tap() }
             guardCount += 1
         }
         XCTAssertTrue(beatQuery.firstMatch.waitForExistence(timeout: 20), "sequencing board appears")
