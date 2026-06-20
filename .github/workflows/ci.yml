@@ -50,12 +50,10 @@ jobs:
         id: sim
         run: |
           # Choose the first available iPad simulator and boot it, robust to runner image
-          # changes (don't hardcode a device name that might not exist).
-          UDID=$(xcrun simctl list devices available -j \
-            | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; \
-import itertools; devs=list(itertools.chain.from_iterable(d.values())); \
-ipads=[x for x in devs if 'iPad' in x['name']]; print(ipads[0]['udid'] if ipads else '')")
-          if [ -z "$UDID" ]; then echo "No iPad simulator available"; exit 1; fi
+          # changes (don't hardcode a device name that might not exist). Single-line
+          # Python so the YAML block scalar stays valid.
+          UDID=$(xcrun simctl list devices available -j | python3 -c "import json,sys,itertools; devs=list(itertools.chain.from_iterable(json.load(sys.stdin)['devices'].values())); ipads=[x for x in devs if 'iPad' in x['name']]; print(ipads[0]['udid'] if ipads else '')")
+          if [ -z "$UDID" ]; then echo "No iPad simulator available"; xcrun simctl list devices; exit 1; fi
           echo "Using iPad simulator $UDID"
           echo "udid=$UDID" >> "$GITHUB_OUTPUT"
           xcrun simctl boot "$UDID" || true
