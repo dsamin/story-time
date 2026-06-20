@@ -53,7 +53,6 @@ struct SequencingBoardView: View {
             }
         }
         .padding(36)
-        .accessibilityIdentifier("screen_sequencing")
         .animation(Motion.drop, value: slots)
         .animation(Motion.drop, value: tray)
         .onAppear(perform: initializeIfNeeded)

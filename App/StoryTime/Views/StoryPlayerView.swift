@@ -26,7 +26,6 @@ struct StoryPlayerView: View {
                 .accessibilityIdentifier("replayStory")
         }
         .padding(28)
-        .accessibilityIdentifier("screen_player")
         .onAppear { flow.beginListeningIfNeeded() }
     }
 
