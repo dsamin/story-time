@@ -42,13 +42,17 @@ final class CoreLoopUITests: XCTestCase {
         // sequencing board appears.
         let sequencePlayQuery = app.buttons["sequencePlay"]
         let beatQuery = app.descendants(matching: .any).matching(NSPredicate(format: "identifier BEGINSWITH 'beat_'"))
+        func screen(_ id: String) -> XCUIElement {
+            app.descendants(matching: .any).matching(identifier: id).firstMatch
+        }
         var guardCount = 0
         while !beatQuery.firstMatch.exists && guardCount < 24 {
             let c = app.buttons["choice_correct"]
             if c.waitForExistence(timeout: 4) { c.tap() }
             guardCount += 1
         }
-        XCTAssertTrue(beatQuery.firstMatch.waitForExistence(timeout: 15), "sequencing board appears")
+        let diag = "player=\(screen("screen_player").exists) question=\(screen("screen_question").exists) sequencing=\(screen("screen_sequencing").exists) correctVisible=\(app.buttons["choice_correct"].exists)"
+        XCTAssertTrue(beatQuery.firstMatch.waitForExistence(timeout: 15), "sequencing board appears [\(diag)]")
 
         // Sequencing: tap each shuffled beat to drop it into the next open well (the app
         // supports tap-to-place as well as drag; taps are deterministic for the test).

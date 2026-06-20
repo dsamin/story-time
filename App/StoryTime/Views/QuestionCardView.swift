@@ -35,6 +35,7 @@ struct QuestionCardView: View {
             Spacer(minLength: 0)
         }
         .padding(28)
+        .accessibilityIdentifier("screen_question")
     }
 
     private var banner: some View {
