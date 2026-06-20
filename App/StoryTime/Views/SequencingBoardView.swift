@@ -29,8 +29,8 @@ struct SequencingBoardView: View {
                     // card into the next open well (and keeps the UI test deterministic).
                     Button { placeInNextOpenWell(ref) } label: { beatCard(ref) }
                         .buttonStyle(.plain)
-                        .beatDraggable(ref)
                         .accessibilityIdentifier("beat_\(ref)")
+                        .beatDraggable(ref)
                 }
                 if tray.isEmpty { Color.clear.frame(height: 200) }
             }
