@@ -1,0 +1,42 @@
+{
+  "id": "dog-and-the-log",
+  "title": "The Dog and the Log",
+  "cast": ["dog", "fox", "log"],
+  "lines": [
+    { "beat": "b1", "words": [
+      { "text": "The", "glue": true },
+      { "text": "dog", "glue": false },
+      { "text": "sat", "glue": false },
+      { "text": "on", "glue": true },
+      { "text": "a", "glue": true },
+      { "text": "log", "glue": false }
+    ] },
+    { "beat": "b2", "words": [
+      { "text": "A", "glue": true },
+      { "text": "fox", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "to", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "log", "glue": false }
+    ] },
+    { "beat": "b3", "words": [
+      { "text": "The", "glue": true },
+      { "text": "dog", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "to", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "den", "glue": false }
+    ] }
+  ],
+  "beats": [
+    { "id": "b1", "image": "log", "caption": "the dog sat on a log" },
+    { "id": "b2", "image": "fox", "caption": "a fox ran to the log" },
+    { "id": "b3", "image": "den", "caption": "the dog ran to the den" }
+  ],
+  "questionSets": [
+    { "prompt": "Who sat on the log?", "type": "who", "choices": ["dog", "pig", "hen"], "answer": "dog", "expansion": "Yes — the dog sat on the log!" },
+    { "prompt": "Where did the dog sit?", "type": "where", "choices": ["log", "mat", "box"], "answer": "log", "expansion": "Right — the dog sat on the log!" },
+    { "prompt": "Who ran to the log?", "type": "who", "choices": ["fox", "cat", "boy"], "answer": "fox", "expansion": "Yes — a fox ran to the log!" },
+    { "prompt": "Where did the dog run?", "type": "where", "choices": ["den", "mud", "bed"], "answer": "den", "expansion": "That's right — the dog ran to the den!" }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "cat-on-the-mat",
+  "title": "The Cat on the Mat",
+  "cast": ["cat", "dog", "mat"],
+  "lines": [
+    { "beat": "b1", "words": [
+      { "text": "The", "glue": true },
+      { "text": "cat", "glue": false },
+      { "text": "sat", "glue": false },
+      { "text": "on", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "mat", "glue": false }
+    ] },
+    { "beat": "b2", "words": [
+      { "text": "The", "glue": true },
+      { "text": "dog", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "in", "glue": true }
+    ] },
+    { "beat": "b3", "words": [
+      { "text": "The", "glue": true },
+      { "text": "cat", "glue": false },
+      { "text": "had", "glue": false },
+      { "text": "a", "glue": true },
+      { "text": "nap", "glue": false }
+    ] }
+  ],
+  "beats": [
+    { "id": "b1", "image": "mat", "caption": "the cat sat on the mat" },
+    { "id": "b2", "image": "dog", "caption": "the dog ran in" },
+    { "id": "b3", "image": "cat", "caption": "the cat had a nap" }
+  ],
+  "questionSets": [
+    { "prompt": "Who sat on the mat?", "type": "who", "choices": ["cat", "dog", "pig"], "answer": "cat", "expansion": "Yes — the cat sat on the mat!" },
+    { "prompt": "What did the cat sit on?", "type": "what", "choices": ["mat", "box", "bed"], "answer": "mat", "expansion": "That's right — the cat sat on the mat!" },
+    { "prompt": "Who ran in?", "type": "who", "choices": ["dog", "cat", "hen"], "answer": "dog", "expansion": "Yes — the dog ran in!" },
+    { "prompt": "Where did the cat have a nap?", "type": "where", "choices": ["mat", "mud", "log"], "answer": "mat", "expansion": "Right — the cat had a nap on the mat!" }
+  ]
+}

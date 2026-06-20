@@ -1,0 +1,42 @@
+{
+  "id": "cat-and-the-box",
+  "title": "The Cat and the Box",
+  "cast": ["cat", "hen", "box"],
+  "lines": [
+    { "beat": "b1", "words": [
+      { "text": "The", "glue": true },
+      { "text": "cat", "glue": false },
+      { "text": "sat", "glue": false },
+      { "text": "in", "glue": true },
+      { "text": "a", "glue": true },
+      { "text": "box", "glue": false }
+    ] },
+    { "beat": "b2", "words": [
+      { "text": "A", "glue": true },
+      { "text": "hen", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "to", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "box", "glue": false }
+    ] },
+    { "beat": "b3", "words": [
+      { "text": "The", "glue": true },
+      { "text": "cat", "glue": false },
+      { "text": "hid", "glue": false },
+      { "text": "in", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "box", "glue": false }
+    ] }
+  ],
+  "beats": [
+    { "id": "b1", "image": "box", "caption": "the cat sat in a box" },
+    { "id": "b2", "image": "hen", "caption": "a hen ran to the box" },
+    { "id": "b3", "image": "cat", "caption": "the cat hid in the box" }
+  ],
+  "questionSets": [
+    { "prompt": "Who sat in the box?", "type": "who", "choices": ["cat", "dog", "pig"], "answer": "cat", "expansion": "Yes — the cat sat in the box!" },
+    { "prompt": "Where did the cat sit?", "type": "where", "choices": ["box", "mat", "log"], "answer": "box", "expansion": "Right — the cat sat in the box!" },
+    { "prompt": "Who ran to the box?", "type": "who", "choices": ["hen", "fox", "boy"], "answer": "hen", "expansion": "Yes — a hen ran to the box!" },
+    { "prompt": "Where did the cat hide?", "type": "where", "choices": ["box", "mud", "bed"], "answer": "box", "expansion": "That's right — the cat hid in the box!" }
+  ]
+}

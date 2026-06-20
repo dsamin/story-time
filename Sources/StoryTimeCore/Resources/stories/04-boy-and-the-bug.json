@@ -1,0 +1,42 @@
+{
+  "id": "boy-and-the-bug",
+  "title": "The Boy and the Bug",
+  "cast": ["boy", "bug", "cup"],
+  "lines": [
+    { "beat": "b1", "words": [
+      { "text": "A", "glue": true },
+      { "text": "bug", "glue": false },
+      { "text": "sat", "glue": false },
+      { "text": "on", "glue": true },
+      { "text": "a", "glue": true },
+      { "text": "cup", "glue": false }
+    ] },
+    { "beat": "b2", "words": [
+      { "text": "The", "glue": true },
+      { "text": "boy", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "to", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "bug", "glue": false }
+    ] },
+    { "beat": "b3", "words": [
+      { "text": "The", "glue": true },
+      { "text": "bug", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "in", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "cup", "glue": false }
+    ] }
+  ],
+  "beats": [
+    { "id": "b1", "image": "bug", "caption": "a bug sat on the cup" },
+    { "id": "b2", "image": "boy", "caption": "the boy ran to the bug" },
+    { "id": "b3", "image": "cup", "caption": "the bug ran in the cup" }
+  ],
+  "questionSets": [
+    { "prompt": "Who sat on the cup?", "type": "who", "choices": ["bug", "cat", "hen"], "answer": "bug", "expansion": "Yes — a bug sat on the cup!" },
+    { "prompt": "What did the bug sit on?", "type": "what", "choices": ["cup", "pot", "box"], "answer": "cup", "expansion": "Right — the bug sat on the cup!" },
+    { "prompt": "Who ran to the bug?", "type": "who", "choices": ["boy", "dog", "pig"], "answer": "boy", "expansion": "Yes — the boy ran to the bug!" },
+    { "prompt": "Where did the bug run?", "type": "where", "choices": ["cup", "mud", "mat"], "answer": "cup", "expansion": "That's right — the bug ran in the cup!" }
+  ]
+}
