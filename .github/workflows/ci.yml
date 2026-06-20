@@ -4,6 +4,7 @@ on:
   push:
     branches: [main, "claude/**"]
   pull_request:
+  workflow_dispatch:
 
 jobs:
   # Genuinely runs everywhere: the import-clean chassis + the errorless core loop logic
@@ -17,21 +18,68 @@ jobs:
         run: swift build
       - name: Test
         run: swift test
+      - name: Drive the full core loop headlessly
+        run: swift run storytime-demo
 
   # The SwiftUI app: generate the Xcode project, build for an iPad simulator, and drive
   # the full loop with XCUITest. Requires macOS (Xcode + iOS simulator).
   app-build-and-uitest-macos:
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
+
+      - name: Select a modern Xcode (match XcodeGen's project format)
+        run: |
+          XC=$(ls -d /Applications/Xcode_16*.app 2>/dev/null | sort -V | tail -1)
+          if [ -z "$XC" ]; then XC=$(ls -d /Applications/Xcode_1*.app | sort -V | tail -1); fi
+          echo "Selecting $XC"
+          sudo xcode-select -s "$XC/Contents/Developer"
+
+      - name: Show Xcode / SDKs
+        run: |
+          xcodebuild -version
+          xcrun simctl list runtimes | grep iOS || true
+
       - name: Install XcodeGen
         run: brew install xcodegen
+
       - name: Generate project
         run: xcodegen generate
-      - name: Build & UI test (iPad simulator)
+
+      - name: Pick an available iPad simulator
+        id: sim
+        run: |
+          # Choose the first available iPad simulator and boot it, robust to runner image
+          # changes (don't hardcode a device name that might not exist).
+          UDID=$(xcrun simctl list devices available -j \
+            | python3 -c "import json,sys; d=json.load(sys.stdin)['devices']; \
+import itertools; devs=list(itertools.chain.from_iterable(d.values())); \
+ipads=[x for x in devs if 'iPad' in x['name']]; print(ipads[0]['udid'] if ipads else '')")
+          if [ -z "$UDID" ]; then echo "No iPad simulator available"; exit 1; fi
+          echo "Using iPad simulator $UDID"
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+
+      - name: Build for the iPad simulator
         run: |
           xcodebuild \
             -scheme StoryTime \
-            -destination 'platform=iOS Simulator,name=iPad Pro 11-inch (M4)' \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build \
+            build
+
+      - name: Drive the full loop with XCUITest
+        run: |
+          xcodebuild \
+            -scheme StoryTime \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build \
             -resultBundlePath TestResults.xcresult \
-            clean test
+            test
+
+      - name: Upload result bundle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TestResults
+          path: TestResults.xcresult
