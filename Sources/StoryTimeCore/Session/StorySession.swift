@@ -37,6 +37,17 @@ public final class StorySession {
     /// Fires after every phase change so a view model can refresh.
     public var onChange: (() -> Void)?
 
+    /// Fires when a *spoken prompt / expansion / re-model* finishes (not story lines or
+    /// replay captions, which carry their own completions). The app uses this to advance
+    /// after a confirmation is heard, or to return to "awaiting" after a re-model. In
+    /// tests this is nil, so the deterministic explicit transitions are used instead.
+    public var onSpeechFinished: (() -> Void)?
+
+    /// Speak an utterance that should notify `onSpeechFinished` when done.
+    private func say(_ utterance: Utterance) {
+        narrator.speak(utterance, onWord: nil, onFinish: { [weak self] in self?.onSpeechFinished?() })
+    }
+
     public init(story: Story, narrator: Narrator, mastery: MasteryService? = nil) {
         self.story = story
         self.narrator = narrator
@@ -95,7 +106,7 @@ public final class StorySession {
 
     private func narrateCurrentPrompt() {
         guard let q = currentQuestion else { return }
-        narrator.speak(.phrase(q.prompt))
+        say(.phrase(q.prompt))
     }
 
     /// Re-speak the current question's prompt (a "say it again" affordance).
@@ -116,13 +127,13 @@ public final class StorySession {
             mastery?.report(target, met: true)
             mastery?.report(vocab, met: true)
             phase = .asking(turn: turn, questionIndex: qi, feedback: .confirmed)
-            narrator.speak(.phrase(q.expansion))
+            say(.phrase(q.expansion))
         } else {
             mastery?.report(target, met: false)
             // Re-model: re-speak the prompt and the modeled answer; highlight the right
             // picture. The child then simply tries again — no penalty, no counter.
             phase = .asking(turn: turn, questionIndex: qi, feedback: .remodel(correct: q.answer))
-            narrator.speak(.phrase("\(q.prompt) \(q.expansion)"))
+            say(.phrase("\(q.prompt) \(q.expansion)"))
         }
     }
 

@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main, "claude/**"]
+  pull_request:
+
+jobs:
+  # Genuinely runs everywhere: the import-clean chassis + the errorless core loop logic
+  # (validator, session, mastery, all 5 stories) as plain Swift + Foundation.
+  core-tests-linux:
+    runs-on: ubuntu-24.04
+    container: swift:6.0.3
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: swift build
+      - name: Test
+        run: swift test
+
+  # The SwiftUI app: generate the Xcode project, build for an iPad simulator, and drive
+  # the full loop with XCUITest. Requires macOS (Xcode + iOS simulator).
+  app-build-and-uitest-macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build & UI test (iPad simulator)
+        run: |
+          xcodebuild \
+            -scheme StoryTime \
+            -destination 'platform=iOS Simulator,name=iPad Pro 11-inch (M4)' \
+            -resultBundlePath TestResults.xcresult \
+            clean test
