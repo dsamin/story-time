@@ -27,7 +27,7 @@ struct StoryPlayerView: View {
         }
         .padding(28)
         .accessibilityIdentifier("screen_player")
-        .onAppear { flow.startListening() }
+        .onAppear { flow.beginListeningIfNeeded() }
     }
 
     private var illustration: some View {

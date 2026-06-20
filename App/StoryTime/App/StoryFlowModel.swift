@@ -30,17 +30,35 @@ final class StoryFlowModel {
         let s = StorySession(story: story, narrator: narrator, mastery: mastery)
         self.session = s
         self.phase = s.phase
-        s.onChange = { [weak self] in self?.phase = self?.session.phase ?? .end }
+        s.onChange = { [weak self] in self?.syncPhase() }
         s.onSpeechFinished = { [weak self] in self?.handleSpeechFinished() }
     }
 
     var story: Story { session.story }
     var currentQuestion: Question? { session.currentQuestion }
 
+    /// Tracks which reread index we've already started narrating, so the listen→questions
+    /// advance happens exactly once per listen — whether kicked by the view's `onAppear`
+    /// or by observing the phase change (the latter is the reliable path for the reread).
+    private var lastListenStarted: Int? = nil
+
+    private func syncPhase() {
+        phase = session.phase
+        beginListeningIfNeeded()
+    }
+
     // MARK: Listening
 
+    /// Start (or restart) narration for the current `.listening` phase, once per reread.
+    /// Driven by phase observation rather than relying solely on the view's onAppear.
+    func beginListeningIfNeeded() {
+        guard case let .listening(reread) = session.phase, lastListenStarted != reread else { return }
+        lastListenStarted = reread
+        startListening()
+    }
+
     func startListening() {
-        guard !isNarrating else { return }
+        session.stopSpeaking()
         isNarrating = true
         activeLine = 0
         activeWord = nil
