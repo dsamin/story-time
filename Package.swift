@@ -15,6 +15,7 @@ let package = Package(
     products: [
         .library(name: "LearningKit", targets: ["LearningKit"]),
         .library(name: "StoryTimeCore", targets: ["StoryTimeCore"]),
+        .executable(name: "storytime-demo", targets: ["StoryTimeDemo"]),
     ],
     targets: [
         .target(
@@ -26,6 +27,11 @@ let package = Package(
             dependencies: ["LearningKit"],
             path: "Sources/StoryTimeCore",
             resources: [.copy("Resources/stories")]
+        ),
+        .executableTarget(
+            name: "StoryTimeDemo",
+            dependencies: ["StoryTimeCore", "LearningKit"],
+            path: "Sources/StoryTimeDemo"
         ),
         .testTarget(
             name: "LearningKitTests",
