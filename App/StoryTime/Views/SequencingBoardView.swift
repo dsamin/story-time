@@ -23,14 +23,12 @@ struct SequencingBoardView: View {
             // Tray of shuffled cards still to place.
             HStack(spacing: 20) {
                 ForEach(tray, id: \.self) { ref in
-                    beatCard(ref)
+                    // A Button so it is reliably exposed to accessibility / UI tests.
+                    // Tap-to-place too: drag is hard for a 4-year-old, so a tap drops the
+                    // card into the next open well (and keeps the UI test deterministic).
+                    Button { placeInNextOpenWell(ref) } label: { beatCard(ref) }
+                        .buttonStyle(.plain)
                         .draggable(ref)
-                        // Tap-to-place too: drag is hard for a 4-year-old, so a tap drops
-                        // the card into the next open well (and keeps the UI test reliable).
-                        .onTapGesture { placeInNextOpenWell(ref) }
-                        // Surface as a single hittable element (the art inside is a11y-hidden).
-                        .accessibilityElement(children: .ignore)
-                        .accessibilityAddTraits(.isButton)
                         .accessibilityIdentifier("beat_\(ref)")
                 }
                 if tray.isEmpty { Color.clear.frame(height: 200) }
@@ -82,9 +80,9 @@ struct SequencingBoardView: View {
                     .fill(Palette.surfaceAlt)
                     .frame(width: 240, height: 240)
                 if let ref = slots[idx] {
-                    beatCard(ref)
+                    Button { unplace(at: idx) } label: { beatCard(ref) }   // tap to take it back
+                        .buttonStyle(.plain)
                         .draggable(ref)
-                        .onTapGesture { unplace(at: idx) }   // tap a placed card to take it back
                 }
             }
             .dropDestination(for: String.self) { items, _ in
