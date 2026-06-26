@@ -1,0 +1,64 @@
+name: StoryTime
+options:
+  bundleIdPrefix: com.dsamin
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+
+packages:
+  # The local Swift package (LearningKit chassis + StoryTimeCore domain + the authored
+  # stories as resources). The app links its products; the package carries the story JSON.
+  StoryTime:
+    path: .
+
+targets:
+  StoryTime:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: App/StoryTime
+    dependencies:
+      - package: StoryTime
+        product: LearningKit
+      - package: StoryTime
+        product: StoryTimeCore
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dsamin.storytime
+        MARKETING_VERSION: "1.0"
+        CURRENT_PROJECT_VERSION: "1"
+        TARGETED_DEVICE_FAMILY: "2"            # iPad only
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: "Story Time"
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UIRequiresFullScreen: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations~ipad: "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"
+        SWIFT_VERSION: "5.9"
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+
+  StoryTimeUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: App/StoryTimeUITests
+    dependencies:
+      - target: StoryTime
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.dsamin.storytime.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "2"
+
+schemes:
+  StoryTime:
+    build:
+      targets:
+        StoryTime: all
+        StoryTimeUITests: [test]
+    test:
+      targets:
+        - StoryTimeUITests
+      gatherCoverageData: false

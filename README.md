@@ -2,7 +2,7 @@
 
 > Hear a tiny story, then tap to answer: who, what, where — and put it back in order.
 
-A calm, audio-first iPad read-aloud app for early learners (preschool / pre-K, roughly ages 3–5). A short, illustrated, fully narrated micro-story plays; then the child answers a few spoken questions by tapping a picture, and rebuilds the story by dragging picture cards into order. No reading required, no way to fail, no scores, no network.
+A calm, audio-first iPad read-aloud app built by one dad for his 4-year-old son. A short, illustrated, fully narrated micro-story plays; then the child answers a few spoken questions by tapping a picture, and rebuilds the story by dragging picture cards into order. No reading required, no way to fail, no scores, no network.
 
 ![No ads](https://img.shields.io/badge/No-ads-8FB9A8?style=flat-square&labelColor=4A4A4A)
 ![No in-app purchases](https://img.shields.io/badge/No-in--app%20purchases-E6C36A?style=flat-square&labelColor=4A4A4A)
@@ -18,7 +18,7 @@ A calm, audio-first iPad read-aloud app for early learners (preschool / pre-K, r
 
 **Story Time, Your Turn** is app **4 of 5** in a small slate of iPad learning apps that share one core engine. It is the *comprehension + memory* app. Where the earlier apps feed decoding (sounding out words) and letter formation, this one feeds the other half of reading: **understanding what you heard, and remembering it**.
 
-The whole session takes about two to three minutes and is designed to be lovely to do *with* a parent sitting alongside. A 20–40 second narrated, illustrated micro-story plays — a few short, decodable sentences with word-by-word highlighting. Then a warm voice asks two or three questions (*"Who was in the story?"*), and the child answers by **tapping a picture**, not by reading. Finally, a sequencing mini-game asks the child to **drag two or three picture cards into first / next / last order**, then replays the story as an animation built from the child's ordering.
+The whole session takes about two to three minutes and is designed to be lovely to do *with* a parent sitting alongside. A 20–40 second narrated, illustrated micro-story plays — a few short, decodable sentences with word-by-word highlighting. Then a warm voice asks two or three questions (*"Who was in the story?"*), and the child answers by **tapping a picture**, not by reading. Finally, a sequencing mini-game asks the child to **drag two or three picture cards into first / next / last order**, then replays the story as an animation built from his ordering.
 
 It is **dialogic reading** turned into an app: the grown-up (or the app, in the grown-up's voice) reads, the *child* responds, and every answer is **expanded**, never marked wrong.
 
@@ -26,19 +26,19 @@ It is **dialogic reading** turned into an app: the grown-up (or the app, in the 
 
 ## Who it's for
 
-This is built for **early learners (preschool / pre-K, roughly ages 3–5)** — bright, curious children who are still learning to recognize and read words. At this age, **listening comprehension runs well ahead of decoding**: a child can follow and enjoy a story long before they can sound it out. This app meets children there: it pours meaning, vocabulary, and memory into the gap while phonics catches up elsewhere.
+This is built for one specific kid: **Jayden, age 4.** He is bright and curious. He struggles with handwriting and letter formation, and he needs help recognizing and reading words. At four, his **listening comprehension runs well ahead of his decoding** — he can follow and enjoy a story long before he can sound it out. This app meets him there: it pours meaning, vocabulary, and memory into the gap while phonics catches up elsewhere.
 
-A child this age cannot read a menu, so **nothing in the app requires reading**. It is calm by design: muted colors, soft transitions, one warm human voice, and no confetti, streaks, timers, or scores — so **nothing in the app can be failed**.
+He cannot read a menu, so **nothing in the app requires reading**. He gets frustrated by failure, so **nothing in the app can be failed**. It is calm by design: muted colors, soft transitions, one warm human voice, and no confetti, streaks, timers, or scores.
 
 ---
 
 ## What it teaches
 
-- **Listening comprehension** — answering *who / what / where* about a story the child just heard.
+- **Listening comprehension** — answering *who / what / where* about a story he just heard.
 - **Oral vocabulary** — new words are heard in context, then *expanded* in the feedback (*"Yes — the cat sat on the mat!"*).
 - **Story sequencing** — putting remembered events back into first → next → last order.
-- **Working & visual memory** — the sequencing game *is* a memory exercise: the child has to recall what happened, with no story on screen to copy from.
-- **Print awareness & early decoding (gently)** — word-by-word highlighting during narration, and tap-any-word-to-hear-it, connect spoken words to their printed shapes without ever *requiring* the child to read.
+- **Working & visual memory** — the sequencing game *is* a memory exercise: he has to recall what happened, with no story on screen to copy from.
+- **Print awareness & early decoding (gently)** — word-by-word highlighting during narration, and tap-any-word-to-hear-it, connect spoken words to their printed shapes without ever *requiring* him to read.
 
 **Educational basis.** The design follows the **Simple View of Reading** (comprehension and decoding are separate strands, both of which must be fed) and **dialogic reading** (child responds, adult expands), which is the most evidence-backed vocabulary and comprehension method for this age. Asking a child to order remembered events is a direct, well-supported working-memory exercise.
 
@@ -51,9 +51,9 @@ The core loop, step by step:
 1. **Pick a story (wordless).** The home screen is a shelf of large story tiles — each one a picture of its cast (the cat, the dog). Tap a tile; a warm voice names it.
 2. **Listen.** A 20–40 second illustrated micro-story plays. A few short, decodable sentences are narrated in a real human voice, **highlighting each word as it is spoken**. The child can **tap any word to hear it again** in isolation.
 3. **Answer — your turn.** The voice asks 2–3 spoken questions about the story: *"Who was in the story?"*, *"What did the cat sit on?"*, *"Where was the dog?"* Each question shows a small set of **picture choices**; the child **taps a picture** to answer.
-4. **Errorless feedback.** A correct tap gets a warm confirmation **plus an expansion** that models a fuller sentence (*"Yes — the cat sat on the mat!"*). A "wrong" tap is **never** a buzzer or a fail screen — the app gently **re-models the correct answer** (re-speaks it, highlights the right picture) and lets the child try again. There is no losing.
+4. **Errorless feedback.** A correct tap gets a warm confirmation **plus an expansion** that models a fuller sentence (*"Yes — the cat sat on the mat!"*). A "wrong" tap is **never** a buzzer or a fail screen — the app gently **re-models the correct answer** (re-speaks it, highlights the right picture) and lets him try again. There is no losing.
 5. **Read it again, new questions.** The same story replays with a **fresh question set**. Rereading is how young children actually learn from a story, so the app leans into it rather than rushing to "next."
-6. **Put it back in order.** A sequencing mini-game presents 2–3 **picture cards** representing the story's beats, shuffled. The child **drags them into first / next / last** order. When the order is set, the story **replays as an animation** assembled from the child's sequence — recalling the story *is* the memory exercise, and seeing it play back is the reward.
+6. **Put it back in order.** A sequencing mini-game presents 2–3 **picture cards** representing the story's beats, shuffled. The child **drags them into first / next / last** order. When the order is set, the story **replays as an animation** assembled from his sequence — recalling the story *is* the memory exercise, and seeing it play back is the reward.
 7. **Done, calmly.** No score, no stars, no "play again?" nag. The session simply rests on a soft end card; a tap returns to the shelf.
 
 ---
@@ -73,8 +73,8 @@ The core loop, step by step:
 
 These are the make-or-break calls specific to *this* app.
 
-- **Strictly decodable text + a tiny "glue" word set.** Story sentences are built from decodable words so they reinforce phonics, **plus** a short whitelist of high-frequency words (*the, a, is, on*) that are **spoken but not expected to be decoded**. This is the single hardest writing constraint — it is what keeps stories from sounding robotic (*"A cat sat"*) while staying honestly within a preschooler's decoding reach.
-- **The content treadmill is the real risk — so the authoring template is the first investment.** Five stories will not last a curious child. Before writing story six, we build a **reusable-cast authoring template**: a fixed cast (the cat, the dog, the pig, the boy) with existing art, so a new story can be added by writing **3–4 decodable lines + a question set + a beat ordering** in a simple data file — *no new art, no code*. The engine renders it.
+- **Strictly decodable text + a tiny "glue" word set.** Story sentences are built from decodable words so they reinforce phonics, **plus** a short whitelist of high-frequency words (*the, a, is, on*) that are **spoken but not expected to be decoded**. This is the single hardest writing constraint — it is what keeps stories from sounding robotic (*"A cat sat"*) while staying honestly within a 4-year-old's decoding reach.
+- **The content treadmill is the real risk — so the authoring template is the first investment.** Five stories will not last a curious kid. Before writing story six, we build a **reusable-cast authoring template**: a fixed cast (the cat, the dog, the pig, the boy) with existing art, so dad can add a new story by writing **3–4 decodable lines + a question set + a beat ordering** in a simple data file — *no new art, no code*. The engine renders it.
 - **Errorless, expand-the-answer feedback.** Wrong is never punished. A miss re-models the correct answer and invites a retry; a hit is confirmed **and expanded** into a fuller sentence. This is the dialogic-reading mechanic, encoded.
 - **Reread with new questions, on purpose.** Replaying the same story with a *fresh* question set is a feature, not filler — it matches how young children consolidate a story.
 - **Sequencing carries the memory pillar — ship it early.** The drag-to-order game is cheap to build and does heavy educational lifting (working/visual memory). It ships in the first cut, not "later."
@@ -87,30 +87,30 @@ These are the make-or-break calls specific to *this* app.
 
 The five apps are **not** independent. They sit on one shared core, and *Story Time* is a consumer of it (the first app, Sound Catcher, establishes the core; later apps lift it into a shared Swift package, **`LearningKit`**, and reuse it). This app reuses three engines and must not regress them:
 
-- **Content library** — the tagged word / sound / picture database. *Story Time* draws its cast, picture-answer choices, and decodable word inventory from here. New stories are authored as data that references library entries, so a picture of "the dog" is the *same* asset the child saw in the other apps.
+- **Content library** — the tagged word / sound / picture database. *Story Time* draws its cast, picture-answer choices, and decodable word inventory from here. New stories are authored as data that references library entries, so a picture of "the dog" is the *same* asset Jayden saw in the other apps.
 - **Audio engine** — plays pre-recorded human-voice clips via `AVAudioPlayer`, with `AVSpeechSynthesizer` as a **swappable placeholder during development** so the full loop is testable before any voice is recorded. Word-by-word highlighting is driven by per-word timing metadata from this engine (real per-clip timings for recorded audio; an estimated cadence for the synthesizer placeholder).
 - **Mastery / review service** — the small cross-app "what needs review" spaced-repetition service (the `MasteryService` Sound Catcher seeds). *Story Time* reports which **vocabulary** and **comprehension targets** a child has met or missed, and can re-surface a story whose words are due for another pass.
 
 **Architectural rule:** every reusable engine (content library, audio engine, mastery/review service) is written with **no app-specific imports** so it can be extracted cleanly into `LearningKit`. App-specific story logic (the player, the question flow, the sequencing board) lives in the app target; the engines do not know this app exists. If Sound Catcher's `LearningKit` package already exists, depend on it directly rather than re-implementing the engines.
 
 ```
-LearningKit/ shared Swift package (extracted from Sound Catcher)
-├── ContentLibrary/ tagged word / sound / picture database (SwiftData models + assets)
-├── AudioEngine/ AVAudioPlayer clips + AVSpeechSynthesizer placeholder; per-word timings
-└── ReviewService/ cross-app mastery + "what needs review" spaced repetition (MasteryService)
+LearningKit/                      shared Swift package (extracted from Sound Catcher)
+├── ContentLibrary/               tagged word / sound / picture database (SwiftData models + assets)
+├── AudioEngine/                  AVAudioPlayer clips + AVSpeechSynthesizer placeholder; per-word timings
+└── ReviewService/                cross-app mastery + "what needs review" spaced repetition (MasteryService)
 
-StoryTime/ this app's target — depends on LearningKit, never the reverse
-├── App/ @main entry, scene config, landscape lock
+StoryTime/                        this app's target — depends on LearningKit, never the reverse
+├── App/                          @main entry, scene config, landscape lock
 ├── Authoring/
-│ ├── Story.swift the story data model: lines, glue-word flags, question sets, beats
-│ ├── stories/*.json authored stories (the template to fill in — text + refs, no art)
-│ └── StoryValidator.swift checks decodability + that referenced assets exist
-├── Player/ narrated story view + word-by-word highlight + tap-a-word
-├── Questions/ spoken-question flow + picture-answer choices + errorless feedback
-├── Sequencing/ drag-to-order board + assembled replay animation
-├── Shelf/ wordless story picker (home)
-├── ParentGate/ press-and-hold-then-drag gate + settings
-└── Resources/ app-only assets, colors, localized adult strings
+│   ├── Story.swift               the story data model: lines, glue-word flags, question sets, beats
+│   ├── stories/*.json            authored stories (the template dad fills in — text + refs, no art)
+│   └── StoryValidator.swift      checks decodability + that referenced assets exist
+├── Player/                       narrated story view + word-by-word highlight + tap-a-word
+├── Questions/                    spoken-question flow + picture-answer choices + errorless feedback
+├── Sequencing/                   drag-to-order board + assembled replay animation
+├── Shelf/                        wordless story picker (home)
+├── ParentGate/                   press-and-hold-then-drag gate + settings
+└── Resources/                    app-only assets, colors, localized adult strings
 ```
 
 ---
@@ -121,29 +121,29 @@ A story is pure data — text plus references into the content library. Adding a
 
 ```jsonc
 {
- "id": "cat-on-the-mat",
- "title": "The Cat on the Mat", // adult-facing only; never shown to the child
- "cast": ["cat", "dog", "mat"], // refs into ContentLibrary
- "lines": [ // narrated in order; words flagged for highlighting
- { "words": [
- { "text": "The", "glue": true }, // spoken, not expected to be decoded
- { "text": "cat", "glue": false }, // decodable; highlights + tap-to-hear
- { "text": "sat", "glue": false }
- ], "beat": "b1" } // which story beat this line belongs to
- ],
- "beats": [ // 2–3 ordered beats → sequencing cards
- { "id": "b1", "image": "cat-sits-on-mat", "caption": "the cat sat on the mat" },
- { "id": "b2", "image": "dog-runs-in", "caption": "the dog ran in" }
- ],
- "questionSets": [ // ≥2 sets; reread draws the next one
- {
- "prompt": "Who was in the story?", // SPOKEN, never read by the child
- "type": "who", // who | what | where
- "choices": ["cat", "dog", "pig"], // picture refs; one correct
- "answer": "cat",
- "expansion": "Yes — the cat sat on the mat!" // spoken on a correct tap
- }
- ]
+  "id": "cat-on-the-mat",
+  "title": "The Cat on the Mat",         // adult-facing only; never shown to the child
+  "cast": ["cat", "dog", "mat"],          // refs into ContentLibrary
+  "lines": [                               // narrated in order; words flagged for highlighting
+    { "words": [
+      { "text": "The", "glue": true },     // spoken, not expected to be decoded
+      { "text": "cat", "glue": false },    // decodable; highlights + tap-to-hear
+      { "text": "sat", "glue": false }
+    ], "beat": "b1" }                       // which story beat this line belongs to
+  ],
+  "beats": [                               // 2–3 ordered beats → sequencing cards
+    { "id": "b1", "image": "cat-sits-on-mat", "caption": "the cat sat on the mat" },
+    { "id": "b2", "image": "dog-runs-in",     "caption": "the dog ran in" }
+  ],
+  "questionSets": [                        // ≥2 sets; reread draws the next one
+    {
+      "prompt": "Who was in the story?",   // SPOKEN, never read by the child
+      "type": "who",                       // who | what | where
+      "choices": ["cat", "dog", "pig"],    // picture refs; one correct
+      "answer": "cat",
+      "expansion": "Yes — the cat sat on the mat!"  // spoken on a correct tap
+    }
+  ]
 }
 ```
 
@@ -153,13 +153,13 @@ A story is pure data — text plus references into the content library. Adding a
 
 ## Privacy & safety
 
-This app is built for preschoolers and behaves like it.
+This app is built for a 4-year-old and behaves like it.
 
 - **No network.** No requests, ever — there is no networking code in the child path. The app runs fully in airplane mode.
 - **No data collected, no analytics, no accounts, no Sign in with Apple, no Game Center.** Persistence is SwiftData **on-device only** (active stories, parent settings, per-child mastery).
 - **No ads, no in-app purchases, no third-party SDKs.**
 - **No outbound links anywhere child-facing.** The only readable text and the only "grown-up" affordances live behind the parent gate.
-- **Parent gate.** Settings are reachable only via a **press-and-hold-then-drag** cognitive gate — never a one-tap "are you a grown-up?" dialog a preschooler could pass.
+- **Parent gate.** Settings are reachable only via a **press-and-hold-then-drag** cognitive gate — never a one-tap "are you a grown-up?" dialog a 4-year-old could pass.
 
 ---
 
@@ -203,13 +203,13 @@ No Xcode GUI is required. Generate the project, build for an iPad simulator, and
 
 ```bash
 # 1. Generate the Xcode project from the checked-in project.yml
-brew install xcodegen # once
+brew install xcodegen        # once
 xcodegen generate
 
 # 2. Build for an iPad simulator (iPadOS 17+)
 xcodebuild -scheme StoryTime \
- -destination 'platform=iOS Simulator,name=iPad Pro (11-inch)' \
- build
+  -destination 'platform=iOS Simulator,name=iPad Pro (11-inch)' \
+  build
 
 # 3. Boot the simulator, install, and launch
 xcrun simctl boot "iPad Pro (11-inch)" || true
@@ -242,4 +242,14 @@ Simulator/scheme names and the bundle id are placeholders — match them to what
 
 ## Status
 
-**Idea spec'd and adversarially critiqued — not yet built.** This README is the canonical description of intent. App 4 of 5 in the shared-chassis learning slate; it depends on the `LearningKit` core established by app 1 (Sound Catcher).
+**Built.** The shared chassis (`LearningKit`), the authoring template + `StoryValidator` + five validated micro-stories, the errorless `StorySession`, and the full SwiftUI app (shelf, narrated player with word highlighting + tap-a-word, errorless picture-answer flow, reread-with-new-questions, drag-to-order sequencing + replay, calm end card, gated parent settings) are implemented. See `docs/ARCHITECTURE.md`, `docs/DESIGN.md`, and `docs/RUNNING.md`.
+
+**Verification.** Two layers, both green in CI:
+
+- *Logic* — the import-clean chassis and the entire core-loop logic are plain Swift + Foundation, covered by **32 unit tests** plus a runnable end-to-end driver (`swift run storytime-demo`), green on Linux/CI: listen → answer → errorless wrong-tap re-model/retry → reread (fresh set) → every-permutation sequencing → replay → end.
+- *App on a real iPad simulator* — the SwiftUI app is generated with XcodeGen, built with `xcodebuild`, and driven by **XCUITest on an iPad simulator** (Xcode 16.4 / iPadOS 18). `CoreLoopUITests` taps a tile → hears the story → answers by tapping a picture → **taps a WRONG picture and asserts no buzzer/fail and a retry** → answers the reread's fresh set → orders the beat cards → watches the replay → reaches the calm end card, and asserts the parent gate ignores a stray tap and the app is landscape. **All 3 UI tests pass (0 failures).**
+
+Both run automatically in `.github/workflows/ci.yml` (a Linux job for the logic, a `macos-15` job for the simulator build + XCUITest).
+
+App 4 of 5 in the shared-chassis learning slate; it depends on the `LearningKit` core established by app 1 (Sound Catcher). Repo: `~/Projects/story-time` · remote `github.com/dsamin/story-time`.
+

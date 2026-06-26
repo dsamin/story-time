@@ -1,0 +1,40 @@
+{
+  "id": "pig-in-the-mud",
+  "title": "The Pig in the Mud",
+  "cast": ["pig", "dog", "mud"],
+  "lines": [
+    { "beat": "b1", "words": [
+      { "text": "The", "glue": true },
+      { "text": "pig", "glue": false },
+      { "text": "sat", "glue": false },
+      { "text": "in", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "mud", "glue": false }
+    ] },
+    { "beat": "b2", "words": [
+      { "text": "The", "glue": true },
+      { "text": "sun", "glue": false },
+      { "text": "was", "glue": true },
+      { "text": "hot", "glue": false }
+    ] },
+    { "beat": "b3", "words": [
+      { "text": "The", "glue": true },
+      { "text": "dog", "glue": false },
+      { "text": "ran", "glue": false },
+      { "text": "to", "glue": true },
+      { "text": "the", "glue": true },
+      { "text": "pig", "glue": false }
+    ] }
+  ],
+  "beats": [
+    { "id": "b1", "image": "mud", "caption": "the pig sat in the mud" },
+    { "id": "b2", "image": "sun", "caption": "the sun was hot" },
+    { "id": "b3", "image": "dog", "caption": "the dog ran to the pig" }
+  ],
+  "questionSets": [
+    { "prompt": "Who sat in the mud?", "type": "who", "choices": ["pig", "cat", "boy"], "answer": "pig", "expansion": "Yes — the pig sat in the mud!" },
+    { "prompt": "Where did the pig sit?", "type": "where", "choices": ["mud", "mat", "bed"], "answer": "mud", "expansion": "Right — the pig sat in the mud!" },
+    { "prompt": "What was hot?", "type": "what", "choices": ["sun", "cup", "pot"], "answer": "sun", "expansion": "Yes — the sun was hot!" },
+    { "prompt": "Who ran to the pig?", "type": "who", "choices": ["dog", "hen", "fox"], "answer": "dog", "expansion": "That's right — the dog ran to the pig!" }
+  ]
+}
